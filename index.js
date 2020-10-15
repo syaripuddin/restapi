@@ -9,7 +9,7 @@ import router from './router.js';
 const app = express();
 
 // Connect to DB
-mongoose.connect('mongodb+srv://admin:admin@digitalent.n9f5m.mongodb.net/jadwalin?retryWrites=true&w=majority',  //process.env.MONGODB_URI
+mongoose.connect(process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -30,9 +30,9 @@ app.get('/', (req, res, next) => {
 
 app.use('/api', router);
 
-// const PORT = process.env.PORT || '4000'
+const PORT = process.env.PORT || '4000';
 
-app.listen('3000', () => {  //process.env.PORT,
-  // console.log(`App listens to port ${process.env.PORT}`);
-  console.log('App listens to port 3000');
+app.listen(PORT, () => {  //process.env.PORT,
+  console.log(`App listens to port ${PORT}`);
+  // console.log('App listens to port 3000');
 });

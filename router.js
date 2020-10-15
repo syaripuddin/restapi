@@ -96,4 +96,11 @@ router.delete('/homeworks/:id', async (req, res) => {
   }
 });
 
+//@desc Delete all
+//@route DELETE /api/homeworks/
+router.delete('/homeworks', async (req, res) => {
+  const homework = await Homework.deleteMany()
+});
+
+
 export default router;
