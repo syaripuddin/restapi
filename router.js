@@ -6,12 +6,7 @@ const router = express.Router();
 //@route  POST /api/homework
 router.post('/homeworks', async (req, res) => {
   try {
-    const {
-      course,
-      title,
-      due_date,
-      status,
-    } = req.body;
+    const {course, title, due_date, status} = req.body;
   
     const homework = new Homework({
       course,
@@ -21,10 +16,11 @@ router.post('/homeworks', async (req, res) => {
     });
   
     const createdHomework = await homework.save();
-  
+    
     res.status(201).json(createdHomework);
-  } catch (error) {
-    res.status(500).json({ error: 'Database creation failed' })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ err: err });
   }
 });
 

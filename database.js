@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+// import mongoose, { mongo } from 'mongoose';
+
 const homeworkSchema = mongoose.Schema(
   {
     course: {
